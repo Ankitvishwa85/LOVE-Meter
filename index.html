@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💖 Love Compatibility Meter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Flying hearts background -->
+   
+  <div class="bg-hearts" id="bgHearts"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-glow"></div>
+    <div class="lang-toggle-wrap">
+      <button class="lang-btn active" id="langEN" onclick="setLang('en')">AB English</button>
+      <button class="lang-btn" id="langHI" onclick="setLang('hi')">🇮🇳 हिंदी</button>
+    </div>
+    <h1 class="site-title" data-en="💖 Love Meter" data-hi="💖 प्रेम मीटर">💖 Love Meter</h1>
+    <p class="site-subtitle" data-en="Measure the magic between two hearts" data-hi="दो दिलों के बीच के प्यार को मापें">Measure the magic between two hearts</p>
+  </header>
+
+  <!-- Main Form Card -->
+  <main class="container">
+    <div class="form-grid">
+
+      <!-- BOY CARD -->
+      <div class="person-card boy-card">
+        <div class="card-header">
+          <span class="card-icon">👦</span>
+          <h2 data-en="His Profile" data-hi="उसकी प्रोफाइल">His Profile</h2>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Full Name" data-hi="पूरा नाम">Full Name</label>
+          <input type="text" id="boyName" data-en-placeholder="Enter his name..." data-hi-placeholder="उसका नाम लिखें..." placeholder="Enter his name..." />
+        </div>
+
+        <div class="field-group">
+          <label data-en="Date of Birth" data-hi="जन्म तिथि">Date of Birth</label>
+          <input type="date" id="boyDob" />
+          <small class="dob-age" id="boyAgeDisplay"></small>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Hobbies" data-hi="शौक">Hobbies</label>
+          <div class="hobby-chips" id="boyHobbies">
+            <span class="chip" data-val="music" data-en="🎵 Music" data-hi="🎵 संगीत">🎵 Music</span>
+            <span class="chip" data-val="travel" data-en="✈️ Travel" data-hi="✈️ यात्रा">✈️ Travel</span>
+            <span class="chip" data-val="reading" data-en="📚 Reading" data-hi="📚 पढ़ना">📚 Reading</span>
+            <span class="chip" data-val="gaming" data-en="🎮 Gaming" data-hi="🎮 गेमिंग">🎮 Gaming</span>
+            <span class="chip" data-val="cooking" data-en="🍳 Cooking" data-hi="🍳 खाना बनाना">🍳 Cooking</span>
+            <span class="chip" data-val="fitness" data-en="💪 Fitness" data-hi="💪 फिटनेस">💪 Fitness</span>
+            <span class="chip" data-val="art" data-en="🎨 Art" data-hi="🎨 कला">🎨 Art</span>
+            <span class="chip" data-val="movies" data-en="🎬 Movies" data-hi="🎬 फिल्में">🎬 Movies</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Patience Level" data-hi="धैर्य स्तर">Patience Level</label>
+          <div class="slider-wrap">
+            <input type="range" id="boyPatience" min="1" max="10" value="5" />
+            <span class="slider-val" id="boyPatienceVal">5</span>
+          </div>
+        </div>
+
+        <div class="field-group toggle-group">
+          <label data-en="Drinks Alcohol?" data-hi="शराब पीते हैं?">Drinks Alcohol?</label>
+          <div class="toggle-pill" id="boyDrinks" data-val="no">
+            <span class="pill-opt active" data-choice="no" data-en="No" data-hi="नहीं">No</span>
+            <span class="pill-opt" data-choice="yes" data-en="Yes" data-hi="हाँ">Yes</span>
+          </div>
+        </div>
+
+        <div class="field-group toggle-group">
+          <label data-en="Smokes?" data-hi="धूम्रपान करते हैं?">Smokes?</label>
+          <div class="toggle-pill" id="boySmoking" data-val="no">
+            <span class="pill-opt active" data-choice="no" data-en="No" data-hi="नहीं">No</span>
+            <span class="pill-opt" data-choice="yes" data-en="Yes" data-hi="हाँ">Yes</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Relationship Goal" data-hi="रिश्ते का उद्देश्य">Relationship Goal</label>
+          <select id="boyRelGoal">
+            <option value="" data-en="Select..." data-hi="चुनें...">Select...</option>
+            <option value="marriage" data-en="💍 Marriage" data-hi="💍 विवाह">💍 Marriage</option>
+            <option value="longterm" data-en="❤️ Long Term" data-hi="❤️ लंबा रिश्ता">❤️ Long Term</option>
+            <option value="casual" data-en="😊 Casual" data-hi="😊 सामान्य">😊 Casual</option>
+            <option value="friendship" data-en="🤝 Friendship First" data-hi="🤝 पहले दोस्ती">🤝 Friendship First</option>
+          </select>
+        </div>
+
+        <div class="field-group toggle-group">
+          <label data-en="We are Relative?" data-hi="हम रिश्तेदार हैं?">We are Relative?</label>
+          <div class="toggle-pill" id="boyRelative" data-val="no">
+            <span class="pill-opt active" data-choice="no" data-en="No" data-hi="नहीं">No</span>
+            <span class="pill-opt" data-choice="yes" data-en="Yes" data-hi="हाँ">Yes</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Communication / Meetings" data-hi="बातचीत / मुलाकात">Communication / Meetings</label>
+          <select id="boyCommFreq">
+            <option value="" data-en="How often do you meet?" data-hi="कितनी बार मिलते हैं?">How often do you meet?</option>
+            <option value="daily" data-en="📅 Daily" data-hi="📅 रोज़">📅 Daily</option>
+            <option value="weekly" data-en="📆 Weekly" data-hi="📆 हर हफ्ते">📆 Weekly</option>
+            <option value="biweekly" data-en="🗓️ Twice a Month" data-hi="🗓️ महीने में दो बार">🗓️ Twice a Month</option>
+            <option value="monthly" data-en="📋 Monthly" data-hi="📋 महीने में एक बार">📋 Monthly</option>
+            <option value="rarely" data-en="😔 Rarely" data-hi="😔 कभी-कभी">😔 Rarely</option>
+            <option value="longdistance" data-en="🌏 Long Distance" data-hi="🌏 दूर रहते हैं">🌏 Long Distance</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Years in Relationship" data-hi="रिश्ते के साल">Years in Relationship</label>
+          <input type="number" id="boyRelYear" data-en-placeholder="e.g. 2" data-hi-placeholder="जैसे 2" placeholder="e.g. 2" min="0" max="50"/>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="divider-col">
+        <div class="divider-line"></div>
+        <span class="divider-heart">💞</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- GIRL CARD -->
+      <div class="person-card girl-card">
+        <div class="card-header">
+          <span class="card-icon">👧</span>
+          <h2 data-en="Her Profile" data-hi="उसकी प्रोफाइल">Her Profile</h2>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Full Name" data-hi="पूरा नाम">Full Name</label>
+          <input type="text" id="girlName" data-en-placeholder="Enter her name..." data-hi-placeholder="उसका नाम लिखें..." placeholder="Enter her name..." />
+        </div>
+
+        <div class="field-group">
+          <label data-en="Date of Birth" data-hi="जन्म तिथि">Date of Birth</label>
+          <input type="date" id="girlDob" />
+          <small class="dob-age" id="girlAgeDisplay"></small>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Hobbies" data-hi="शौक">Hobbies</label>
+          <div class="hobby-chips" id="girlHobbies">
+            <span class="chip" data-val="music" data-en="🎵 Music" data-hi="🎵 संगीत">🎵 Music</span>
+            <span class="chip" data-val="travel" data-en="✈️ Travel" data-hi="✈️ यात्रा">✈️ Travel</span>
+            <span class="chip" data-val="reading" data-en="📚 Reading" data-hi="📚 पढ़ना">📚 Reading</span>
+            <span class="chip" data-val="gaming" data-en="🎮 Gaming" data-hi="🎮 गेमिंग">🎮 Gaming</span>
+            <span class="chip" data-val="cooking" data-en="🍳 Cooking" data-hi="🍳 खाना बनाना">🍳 Cooking</span>
+            <span class="chip" data-val="fitness" data-en="💪 Fitness" data-hi="💪 फिटनेस">💪 Fitness</span>
+            <span class="chip" data-val="art" data-en="🎨 Art" data-hi="🎨 कला">🎨 Art</span>
+            <span class="chip" data-val="movies" data-en="🎬 Movies" data-hi="🎬 फिल्में">🎬 Movies</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Patience Level" data-hi="धैर्य स्तर">Patience Level</label>
+          <div class="slider-wrap">
+            <input type="range" id="girlPatience" min="1" max="10" value="5" />
+            <span class="slider-val" id="girlPatienceVal">5</span>
+          </div>
+        </div>
+
+        <div class="field-group toggle-group">
+          <label data-en="Drinks Alcohol?" data-hi="शराब पीती हैं?">Drinks Alcohol?</label>
+          <div class="toggle-pill" id="girlDrinks" data-val="no">
+            <span class="pill-opt active" data-choice="no" data-en="No" data-hi="नहीं">No</span>
+            <span class="pill-opt" data-choice="yes" data-en="Yes" data-hi="हाँ">Yes</span>
+          </div>
+        </div>
+
+        <div class="field-group toggle-group">
+          <label data-en="Smokes?" data-hi="धूम्रपान करती हैं?">Smokes?</label>
+          <div class="toggle-pill" id="girlSmoking" data-val="no">
+            <span class="pill-opt active" data-choice="no" data-en="No" data-hi="नहीं">No</span>
+            <span class="pill-opt" data-choice="yes" data-en="Yes" data-hi="हाँ">Yes</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Relationship Goal" data-hi="रिश्ते का उद्देश्य">Relationship Goal</label>
+          <select id="girlRelGoal">
+            <option value="" data-en="Select..." data-hi="चुनें...">Select...</option>
+            <option value="marriage" data-en="💍 Marriage" data-hi="💍 विवाह">💍 Marriage</option>
+            <option value="longterm" data-en="❤️ Long Term" data-hi="❤️ लंबा रिश्ता">❤️ Long Term</option>
+            <option value="casual" data-en="😊 Casual" data-hi="😊 सामान्य">😊 Casual</option>
+            <option value="friendship" data-en="🤝 Friendship First" data-hi="🤝 पहले दोस्ती">🤝 Friendship First</option>
+          </select>
+        </div>
+
+        <div class="field-group toggle-group">
+          <label data-en="We are Relative?" data-hi="हम रिश्तेदार हैं?">We are Relative?</label>
+          <div class="toggle-pill" id="girlRelative" data-val="no">
+            <span class="pill-opt active" data-choice="no" data-en="No" data-hi="नहीं">No</span>
+            <span class="pill-opt" data-choice="yes" data-en="Yes" data-hi="हाँ">Yes</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Communication / Meetings" data-hi="बातचीत / मुलाकात">Communication / Meetings</label>
+          <select id="girlCommFreq">
+            <option value="" data-en="How often do you meet?" data-hi="कितनी बार मिलते हैं?">How often do you meet?</option>
+            <option value="daily" data-en="📅 Daily" data-hi="📅 रोज़">📅 Daily</option>
+            <option value="weekly" data-en="📆 Weekly" data-hi="📆 हर हफ्ते">📆 Weekly</option>
+            <option value="biweekly" data-en="🗓️ Twice a Month" data-hi="🗓️ महीने में दो बार">🗓️ Twice a Month</option>
+            <option value="monthly" data-en="📋 Monthly" data-hi="📋 महीने में एक बार">📋 Monthly</option>
+            <option value="rarely" data-en="😔 Rarely" data-hi="😔 कभी-कभी">😔 Rarely</option>
+            <option value="longdistance" data-en="🌏 Long Distance" data-hi="🌏 दूर रहते हैं">🌏 Long Distance</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label data-en="Years in Relationship" data-hi="रिश्ते के साल">Years in Relationship</label>
+          <input type="number" id="girlRelYear" data-en-placeholder="e.g. 2" data-hi-placeholder="जैसे 2" placeholder="e.g. 2" min="0" max="50"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALCULATE BUTTON -->
+    <div class="btn-wrap">
+      <button class="calc-btn" id="calcBtn">
+        <span class="btn-text" data-en="✨ Calculate Love Score" data-hi="✨ प्यार का स्कोर जानें">✨ Calculate Love Score</span>
+        <span class="btn-ripple"></span>
+      </button>
+    </div>
+
+    <!-- RESULT SECTION -->
+    <div class="result-section" id="resultSection">
+      <div class="result-card" id="resultCard">
+
+        <div class="result-meter-wrap">
+          <svg class="meter-svg" viewBox="0 0 200 110">
+            <path class="meter-bg" d="M20,100 A80,80 0 0,1 180,100" fill="none" stroke-width="16" stroke-linecap="round"/>
+            <path class="meter-fill" id="meterFill" d="M20,100 A80,80 0 0,1 180,100" fill="none" stroke-width="16" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="251"/>
+          </svg>
+          <div class="meter-percent" id="meterPercent">0%</div>
+          <div class="meter-label" data-en="Compatibility" data-hi="अनुकूलता">Compatibility</div>
+        </div>
+
+        <div class="result-names" id="resultNames"></div>
+        <div class="result-emoji" id="resultEmoji"></div>
+        <div class="result-message" id="resultMessage"></div>
+
+        <div class="result-breakdown" id="resultBreakdown"></div>
+
+        <!-- Confetti container -->
+        <div class="confetti-zone" id="confettiZone"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
